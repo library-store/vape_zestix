@@ -395,7 +395,6 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
 	font-family: sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
@@ -617,7 +616,7 @@ textarea {
 --------------------------------------------------------------*/
 a {
 	color: royalblue;
-	animation-duration: 0.5s;
+	transition-duration: 0.2s;
 }
 
 a:visited {
@@ -994,6 +993,16 @@ object {
 	src: url(./fonts/GIL_____.ttf);
 }
 
+@font-face {
+	font-family: GillSansMT_B;
+	src: url(./fonts/GILB____.ttf);
+}
+
+@font-face {
+	font-family: Homizio_B;
+	src: url(./fonts/homizio_bold.ttf);
+}
+
 .container{
 	width: 980px;
 	margin: auto;
@@ -1030,4 +1039,90 @@ header > .flex-box{
 
 .site-branding{
 	font-size: 0px;
+}
+
+section .header {
+	text-align: center;
+	font-family: GillSansMT_B;
+	font-size: 30px;
+	text-transform: uppercase;
+	width: 550px;
+	margin: auto;
+	border-bottom: 1px solid #000;
+}
+
+.home_section .header {
+	background: url(./images/5star.png) no-repeat center 44px;
+	padding-bottom: 22px;
+	margin-top: 20px;
+}
+
+.home_product .products {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	width: 90%;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+}
+
+.home_product .products .product {
+	flex-basis: 16.666%;
+	text-align: center;
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+
+.home_product .products .product .name a {
+	color: #000;
+	text-transform: uppercase;
+	font-family: Homizio_B;
+	font-size: 22px;
+}
+
+.home_product .products .product .more a {
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
+	border: 1px solid #000;
+	border-radius: 38px;
+	padding: 4px 10px 4px 10px;
+	font-size: 12px;
+}
+
+.home_product .products .product .more a:hover {
+	background: #f15a29;
+	color: #fff;
+	border-color: #f15a29;
+}
+
+#slideshow_instagram {
+	width: 90%;
+	margin: auto;
+}
+
+footer .socials span {
+	width: 55px;
+	height: 55px;
+	display: inline-block;
+	color: transparent;
+	background-size: cover !important;
+	margin: 0px 7px;
+}
+
+footer .socials .instagram{
+	 background: url("./images/ista_ic.png") no-repeat center;
+}
+
+footer .socials .facebook{
+	background: url("./images/fb_ic.png") no-repeat center;
+}
+
+footer .socials .twitter{
+	background: url("./images/tt_ic.png") no-repeat center;
+}
+
+footer .socials .watchsapp{
+	background: url("./images/wa_ic.png") no-repeat center;
 }

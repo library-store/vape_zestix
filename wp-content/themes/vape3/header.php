@@ -20,6 +20,7 @@
 	<?php wp_head(); ?>
 
     <link rel="stylesheet" href="http://danixvapors.com/wp-content/themes/vape/js/swiper/swiper.min.css">
+    <script src="<?php echo get_template_directory_uri(); ?>/js/swiper/swiper.min.js"></script>
 </head>
 
 <body <?php body_class(); ?>>
