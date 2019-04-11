@@ -16,35 +16,34 @@ get_header();
 ?>
 
 <?php global $vape_options; ?>
-<div id="slideshow">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <?php foreach (get_field('slide_image', 'option') as $opt) { ?>
-                <div class="swiper-slide"><a href="<?php echo $opt['url']; ?>"><img src="<?php echo $opt['image']; ?>" alt="<?php echo $opt['title']; ?>"></a></div>
-            <?php } ?>
+    <div id="slideshow">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php foreach (get_field('slide_image', 'option') as $opt) { ?>
+                    <div class="swiper-slide"><a href="<?php echo $opt['url']; ?>"><img src="<?php echo $opt['image']; ?>" alt="<?php echo $opt['title']; ?>"></a></div>
+                <?php } ?>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
     </div>
-</div>
 
-<script>
-    var swiper = new Swiper('#slideshow .swiper-container', {
-        pagination: '.swiper-pagination',
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        paginationClickable: true,
-        spaceBetween: 30,
-        centeredSlides: true,
-        speed: 1000,
-        autoplay: 4000,
-        autoplayDisableOnInteraction: false,
-        loop: true,
-    });
-</script>
+    <script>
+        var swiper = new Swiper('#slideshow .swiper-container', {
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            spaceBetween: 30,
+            centeredSlides: true,
+            speed: 1000,
+            autoplay: 4000,
+            autoplayDisableOnInteraction: false,
+            loop: true,
+        });
+    </script>
 
 <main id="main" class="site-main">
     <section class="home_product home_section">
@@ -52,81 +51,30 @@ get_header();
             Zestix Salt
         </div>
 
-        <div class="products">
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="http://danixvapors.com/wp-content/uploads/da1.png" alt="title" class="p_image"></a>
-                <h3 class="name"><a href="#">Apple Iced</a></h3>
-                <div class="more">
-                    <a href="#">View More</a>
-                </div>
-            </div>
+        <div class="products flex-box">
+
+            <?php if ( have_posts() ) : ?>
+
+                <?php if ( is_home() ) : ?>
+
+                    <?php while ( have_posts() ) : the_post(); ?>
+                    <div class="product">
+                        <a href="<?php echo get_permalink() ?>"><?php echo get_the_post_thumbnail(); ?></a>
+                        <h3 class="name"><a href="<?php echo get_permalink() ?>"><?php echo get_the_title() ?></a></h3>
+                        <div class="more">
+                            <a href="<?php echo get_permalink() ?>">View More</a>
+                        </div>
+                    </div>
+                    <?php endwhile; ?>
+
+                <?php endif; ?>
+
+            <?php endif; ?>
+
         </div>
     </section>
 
-    <section class="home_section">
+    <section class="home_section about">
         <div class="header">
             Zestix Of Us
         </div>
@@ -136,43 +84,7 @@ get_header();
         </div>
     </section>
 
-    <section class="home_section">
-        <div class="header">
-            #Zestix on instagram
-        </div>
-
-        <div id="slideshow_instagram">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <?php foreach (get_field('instagram_images', 'option') as $opt) { ?>
-                        <div class="swiper-slide"><a href="<?php echo $opt['url']; ?>"><img src="<?php echo $opt['image']; ?>" alt="<?php echo $opt['title']; ?>"></a></div>
-                    <?php } ?>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-
-        <script>
-            var swiper = new Swiper('#slideshow_instagram .swiper-container', {
-                slidesPerView: 4,
-                slidesPerGroup: 1,
-                spaceBetween: 30,
-                pagination: '.swiper-pagination',
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-                paginationClickable: true,
-                speed: 1000,
-                autoplay: 4000,
-                autoplayDisableOnInteraction: false,
-                loop: true,
-            });
-        </script>
-
-    </section>
+    <?php get_template_part( 'template-parts/content', 'instagram' ); ?>
 </main><!-- #main -->
 
 <?php

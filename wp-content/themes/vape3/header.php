@@ -17,7 +17,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 	<?php wp_head(); ?>
+
+    <script>
+        /**
+         * Created by TA-MEDIA on 12/3/2017.
+         */
+        function detectmob() {
+            if( navigator.userAgent.match(/Android/i)
+                || navigator.userAgent.match(/webOS/i)
+                || navigator.userAgent.match(/iPhone/i)
+                || navigator.userAgent.match(/iPad/i)
+                || navigator.userAgent.match(/iPod/i)
+                || navigator.userAgent.match(/BlackBerry/i)
+                || navigator.userAgent.match(/Windows Phone/i)
+            ){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
 
     <link rel="stylesheet" href="http://danixvapors.com/wp-content/themes/vape/js/swiper/swiper.min.css">
     <script src="<?php echo get_template_directory_uri(); ?>/js/swiper/swiper.min.js"></script>
@@ -39,15 +62,22 @@
                 </a>
             </div><!-- .site-branding -->
 
-            <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'vape3' ); ?></button>
-                <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'menu-1',
-                    'menu_id'        => 'primary-menu',
-                ) );
-                ?>
-            </nav><!-- #site-navigation -->
+            <div class="menu-container">
+                <div class="buton-menu-toggle">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <nav id="site-navigation" class="main-navigation">
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'menu-1',
+                        'menu_id'        => 'primary-menu',
+                    ) );
+                    ?>
+                </nav><!-- #site-navigation -->
+            </div>
         </div>
 	</header><!-- #masthead -->
 

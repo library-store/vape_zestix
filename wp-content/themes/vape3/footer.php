@@ -37,5 +37,59 @@
 
 </div><!-- #page -->
 
+<div id="popup">
+    <div class="form-checkage">
+        <div class="content">
+            <div>
+                <img class="header-logo" src="<?php echo get_field('logo', 'option'); ?>" alt="" style="width: 150px;">
+                <div style="font-family: GillSansMT_B; border-bottom: 1px solid #fff; padding-bottom: 15px; margin-bottom: 10px; font-size: 30px;">Age Verification</div>
+            </div>
+            <div style="font-family: Homizio_B; font-size: 29px; text-decoration: underline;">
+                Respondents who do not answer accurately are fully liable
+                for their own decisions regardless of age.
+            </div>
+            <div>
+                <span id="age-yes-btn" style="font-family: Homizio_B;">I’m 21 or Older</span>
+                <a href="https://www.google.ca" target="_self"><span style="font-family: Homizio_B;">I’m under 21</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // Create our stylesheet
+    var style = document.createElement('style');
+    style.innerHTML =
+        'img {' +
+        'opacity: 1 !important;'
+        '}';
+
+    // Get the first script tag
+    var ref = document.querySelector('script');
+
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+
+
+    //////////////////////
+    jQuery(document).ready(function ($) {
+        var popupshowed = false;
+        var popupshowed = localStorage.getItem("vape_zestix_popupshowed");
+
+        if(!popupshowed){
+            $('#popup').fadeIn();
+            localStorage.setItem("vape_zestix_popupshowed", true);
+        }
+
+        $('#age-yes-btn').on('click', function(){
+            $('#popup').fadeOut();
+        });
+
+        $('.buton-menu-toggle').on('click', function(){
+            $('#primary-menu').slideToggle();
+        });
+    });
+</script>
+
 </body>
 </html>

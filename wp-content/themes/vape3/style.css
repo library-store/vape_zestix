@@ -406,7 +406,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 0.5em;
 }
 
 dfn, cite, em, i {
@@ -511,6 +511,8 @@ img {
 	height: auto;
 	/* Make sure images are scaled correctly. */
 	max-width: 100%;
+	transition-duration: 1s;
+	opacity: 0;
 	/* Adhere to container width. */
 }
 
@@ -1010,6 +1012,8 @@ object {
 
 .flex-box{
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 #top {
@@ -1025,10 +1029,6 @@ header {
 
 header > .flex-box{
 	justify-content: space-between;
-}
-
-.main-navigation {
-	align-self: flex-end;
 }
 
 #primary-menu li a {
@@ -1055,6 +1055,10 @@ section .header {
 	background: url(./images/5star.png) no-repeat center 44px;
 	padding-bottom: 22px;
 	margin-top: 20px;
+}
+
+.menu-container {
+	align-self: flex-end;
 }
 
 .home_product .products {
@@ -1125,4 +1129,153 @@ footer .socials .twitter{
 
 footer .socials .watchsapp{
 	background: url("./images/wa_ic.png") no-repeat center;
+}
+
+article header {
+	background: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+article.post, article.page {
+	width: 980px;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+article header h1 {
+	text-transform: uppercase;
+	display: inline-block;
+	border-bottom: 2px solid #000;
+	width: 400px;
+}
+
+article .post-thumbnail {
+	border: 1px solid #000;
+	margin-bottom: 40px;
+}
+
+article .entry-content {
+	text-decoration: underline;
+	font-family: Homizio_B;
+	font-size: 24px;
+	max-width: 860px;
+	margin: auto;
+}
+
+#popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.9);
+	z-index: 999;
+	display: none;
+}
+
+.form-checkage {
+	position: relative;
+	left: 0px;
+	width: 700px;
+	height: 307px;
+	top: 100px;
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+}
+.form-checkage .content {
+	width: 100%;
+	height: 100%;
+	color: #fff;
+}
+.form-checkage .content > div:nth-child(1) {
+	padding-top: 45px;
+	font-size: 22px;
+	line-height: 1.2em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.form-checkage .content > div:nth-child(3) span {
+	font-family: Homizio_B !important;
+	background: #000 !important;
+	color: #fff;
+	width: 224px !important;
+	font-size: 20px !important;
+	font-weight: bold !important;
+	padding: 8px 20px !important;
+	margin: 25px 25px 10px 25px !important;
+	display: inline-block !important;
+	border: solid #f1592a 2px;
+}
+
+#age-yes-btn {
+	background-color: #a67d47;
+	cursor: pointer !important;
+	padding: 9px 68px;
+	font-size: 30px;
+	margin: 45px 0px 10px 0px;
+	display: inline-block;
+}
+
+.home_section.instagram {
+	margin-bottom: 40px;
+}
+
+.home_section.instagram .header {
+	margin-bottom: 50px;
+}
+
+section.home_section.about {
+	margin: 80px 0px;
+}
+
+article .entry-content p {
+	margin-top: 0px;
+}
+
+@media (max-width: 1000px){
+	div {
+		max-width: 100%;
+	}
+
+	header {
+		padding: 10px 0px;
+	}
+
+	.buton-menu-toggle div {
+		width: 35px;
+		height: 5px;
+		background-color: #fff;
+		margin: 6px auto;
+	}
+
+	.site-branding {
+		width: 100%;
+		text-align: center;
+	}
+
+	.menu-container {
+		align-self: flex-end;
+		text-align: center;
+		width: 100%;
+	}
+
+	#primary-menu li {
+		width: 100%;
+		margin: 0px;
+		text-align: center;
+	}
+
+	.home_product .products .product {
+		flex-basis: 50% !important;
+	}
+
+	article.post, article.page {
+		width: 95%;
+		margin: auto;
+		overflow: hidden;
+	}
 }
